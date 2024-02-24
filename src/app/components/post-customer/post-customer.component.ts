@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CustomerService } from '../../service/customer.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-customer',
@@ -13,7 +14,7 @@ export class PostCustomerComponent {
 
   postCustomerForm!: FormGroup;
 
-  constructor(private customerService: CustomerService, private fb: FormBuilder){
+  constructor(private customerService: CustomerService, private fb: FormBuilder, private router: Router){
 
   }
 
@@ -32,6 +33,7 @@ export class PostCustomerComponent {
 
     this.customerService.postCustomer(this.postCustomerForm.value).subscribe((res) => {
       console.log(res);
+      this.router.navigateByUrl("");
 
     })
   }
