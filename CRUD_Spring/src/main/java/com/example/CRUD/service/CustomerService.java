@@ -18,10 +18,15 @@ public class CustomerService {
     return customerRepository.save(customer);
   }
 
+  // Method GET
   public List<Customer> getAllCustomers(){
     return customerRepository.findAll();
   }
 
+  // Method DELETE
+  public void deleteCustomer(Long id){
+    customerRepository.deleteById(id);
+  }
 
 
 }
