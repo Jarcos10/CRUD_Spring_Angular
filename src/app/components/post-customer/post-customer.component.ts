@@ -23,7 +23,7 @@ export class PostCustomerComponent {
     this.postCustomerForm = this.fb.group({
 
       name: [null, Validators.required],
-      email: [null, Validators.required, Validators.email],
+      email: [null, [Validators.required, Validators.email]],
       phone: [null, Validators.required],
     })
   }
