@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -33,5 +34,22 @@ public class CustomerService {
     return customerRepository.findById(id).orElse(null);
   }
 
+  // Method UPDATE
+  public Customer updateCustomer(Long id, Customer customer){
+
+    Optional<Customer> optionalCustomer = customerRepository.findById(id);
+
+    if(optionalCustomer.isPresent()){
+
+      Customer existingCustomer = optionalCustomer.get();
+      existingCustomer.setEmail(customer.getEmail());
+      existingCustomer.setName(customer.getName());
+      existingCustomer.setPhone(customer.getPhone());
+
+      return customerRepository.save(existingCustomer);
+    }
+
+    return null;
+  }
 
 }

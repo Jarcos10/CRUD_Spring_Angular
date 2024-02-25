@@ -3,6 +3,7 @@ package com.example.CRUD.controller;
 import com.example.CRUD.model.Customer;
 import com.example.CRUD.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,6 +41,18 @@ public class CustomerController {
         return ResponseEntity.notFound().build();
 
     return ResponseEntity.ok(customer);
+  }
+
+  @PutMapping("/customer/{id}")
+  public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customer){
+
+    Customer updateCustomer = customerService.updateCustomer(id, customer);
+
+    if(updateCustomer == null)
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+
+    return ResponseEntity.ok(updateCustomer);
+
   }
 
 }
