@@ -21,12 +21,18 @@ export class GetAllCustomersComponent {
   }
 
   getAllCustomers(){
-
     this.service.getAllCustomers().subscribe(res => {
       console.log(res);
       
       this.customers = res;
+    })
+  }
 
+  deleteCustomer(id: number){
+    console.log(id);
+    this.service.deleteCustomer(id).subscribe(res =>{
+      console.log(res);
+      this.getAllCustomers();
     })
   }
 }

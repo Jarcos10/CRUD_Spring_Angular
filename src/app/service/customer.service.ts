@@ -19,5 +19,8 @@ export class CustomerService {
     return this.http.get(BASIC_URL+"api/customers");
   }
 
-  
+  deleteCustomer(id:number): Observable<any>{
+    return this.http.delete(BASIC_URL+"api/customer/"+id);
+
+  }
 }
