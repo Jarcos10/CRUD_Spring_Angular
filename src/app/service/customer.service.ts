@@ -27,4 +27,8 @@ export class CustomerService {
   getCustomerById(id:number): Observable<any>{
     return this.http.get(BASIC_URL+"api/customer/"+id);
   }
+
+  updateCustomer(id:number, customer: any): Observable<any>{
+    return this.http.put(BASIC_URL+"api/customer/"+id, customer);
+  }
 }
