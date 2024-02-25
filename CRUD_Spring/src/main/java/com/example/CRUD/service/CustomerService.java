@@ -28,5 +28,10 @@ public class CustomerService {
     customerRepository.deleteById(id);
   }
 
+  // Method GET BY ID
+  public Customer getCustomerById(Long id){
+    return customerRepository.findById(id).orElse(null);
+  }
+
 
 }
