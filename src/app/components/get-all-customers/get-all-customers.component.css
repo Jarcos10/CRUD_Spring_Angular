@@ -22,6 +22,7 @@ tr:nth-child(even){
     background-color: #F2F2F2;
 }
 
+.btn-update,
 .btn-delete,
 .btn-new{
 
@@ -37,12 +38,13 @@ tr:nth-child(even){
     margin-top: 50px;
 }
 
+.btn-update:hover,
 .btn-delete:hover,
 .btn-new:hover{
     background-color: #0056B3;
 }
 
+.btn-update,
 .btn-delete{
-
     margin-left: 5px;
 }

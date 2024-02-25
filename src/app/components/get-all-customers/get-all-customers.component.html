@@ -16,8 +16,8 @@
             <td>{{customer.email}}</td>
             <td>{{customer.phone}}</td>
             <td>
+                <button class="btn-update" routerLink="/customer/{{customer.id_customer}}">Update</button>
                 <button class="btn-delete" (click)="deleteCustomer(customer.id_customer)">Delete</button>
-
             </td>
         </tr>
     </tbody>
